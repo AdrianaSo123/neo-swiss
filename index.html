@@ -11,10 +11,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navigation">
+    <nav class="navigation" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#" class="logo">Neo-Swiss</a>
-            <ul class="nav-menu">
+            <a href="#home" class="logo" aria-label="Neo-Swiss home">Neo-Swiss</a>
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#principles" class="nav-link">Principles</a></li>
                 <li><a href="#history" class="nav-link">History</a></li>
@@ -28,16 +31,44 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">The Design System That Built Billion-Dollar Companies</h1>
-                    <p class="hero-subtitle">Neo-Swiss isn't just pretty—it's the secret weapon behind Stripe's trust, Linear's speed, and Airbnb's scale</p>
-                    <p class="hero-description">
-                        What if I told you there's a design approach so systematically powerful that it can make any product 
-                        feel more trustworthy, professional, and effortlessly easy to use? Swiss designers figured this out in the 1950s. 
-                        We've adapted it for the digital age. Here's how it works—and why it works so damn well.
-                    </p>
+                    <div class="hero-badge">Swiss Design × Digital Age</div>
+                    <h1 class="hero-title">
+                        Neo-Swiss
+                        <span class="hero-subtitle">The system behind Stripe, Linear & Airbnb</span>
+                    </h1>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">$100B+</div>
+                            <div class="stat-label">Company valuations</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">6</div>
+                            <div class="stat-label">Core principles</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">70</div>
+                            <div class="stat-label">Years proven</div>
+                        </div>
+                    </div>
                     <div class="hero-actions">
-                        <a href="#principles" class="button button-primary">Show Me How</a>
-                        <a href="#examples" class="button button-secondary">See The Magic</a>
+                        <a href="#principles" class="button button-primary">
+                            <span>Explore the System</span>
+                            <span class="button-arrow">→</span>
+                        </a>
+                        <a href="#examples" class="button button-secondary">Live Examples</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="grid-demo">
+                        <div class="grid-line"></div>
+                        <div class="grid-line"></div>
+                        <div class="grid-line"></div>
+                        <div class="grid-line"></div>
+                        <div class="grid-cards">
+                            <div class="demo-card card-1"></div>
+                            <div class="demo-card card-2"></div>
+                            <div class="demo-card card-3"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,56 +76,107 @@
 
         <section id="principles" class="section">
             <div class="container">
-                <h2 class="section-title">Six Rules That Change Everything</h2>
+                <h2 class="section-title">Six Core Principles</h2>
                 <div class="principles-grid">
                     <div class="principle-card">
-                        <h3 class="principle-title">Grid Systems That Never Break</h3>
+                        <div class="principle-icon">
+                            <div class="icon-grid" aria-hidden="true"></div>
+                        </div>
+                        <h3 class="principle-title">Responsive Grids</h3>
                         <p class="principle-description">
-                            Remember the last time a website looked perfect on desktop but terrible on your phone? 
-                            That's what happens without systematic grids. Neo-Swiss grids (12→6→4 columns) adapt 
-                            intelligently while keeping everything aligned. It's like having a design system that 
-                            thinks for itself.
+                            12→6→4 columns that adapt intelligently across devices
                         </p>
+                        <div class="principle-demo" aria-label="Grid column demonstration">
+                            <div class="demo-columns">
+                                <div class="demo-col"></div>
+                                <div class="demo-col"></div>
+                                <div class="demo-col"></div>
+                                <div class="demo-col"></div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="principle-card">
-                        <h3 class="principle-title">Typography That Scales Perfectly</h3>
+                        <div class="principle-icon">
+                            <div class="icon-type" aria-hidden="true">Aa</div>
+                        </div>
+                        <h3 class="principle-title">Fluid Typography</h3>
                         <p class="principle-description">
-                            Here's the thing about mobile design—most sites either have tiny, unreadable text or 
-                            massive headlines that look ridiculous on desktop. Fluid typography solves this forever. 
-                            One CSS rule, infinite screen sizes, perfect readability. It's almost unfair how well this works.
+                            Scales perfectly from mobile to desktop with CSS clamp()
                         </p>
+                        <div class="principle-demo" aria-label="Typography scale demonstration">
+                            <div class="type-scale">
+                                <div class="type-sample large">H1</div>
+                                <div class="type-sample medium">H2</div>
+                                <div class="type-sample small">Body</div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="principle-card">
-                        <h3 class="principle-title">The Power of Saying No to Colors</h3>
+                        <div class="principle-icon">
+                            <div class="icon-palette" aria-hidden="true"></div>
+                        </div>
+                        <h3 class="principle-title">Minimal Color</h3>
                         <p class="principle-description">
-                            Every color you add weakens every other color. Stripe dominates fintech with black, white, 
-                            and one blue. That's it. When everything isn't shouting for attention, the important 
-                            stuff gets noticed. It's counterintuitive until you see the results.
+                            Black + white + grays + 1 accent color maximum
                         </p>
+                        <div class="principle-demo" aria-label="Color palette demonstration">
+                            <div class="color-dots">
+                                <div class="dot black" aria-label="Black"></div>
+                                <div class="dot gray" aria-label="Gray"></div>
+                                <div class="dot white" aria-label="White"></div>
+                                <div class="dot accent" aria-label="Accent blue"></div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="principle-card">
-                        <h3 class="principle-title">8px: The Magic Number</h3>
+                        <div class="principle-icon">
+                            <div class="icon-spacing" aria-hidden="true">8px</div>
+                        </div>
+                        <h3 class="principle-title">8px System</h3>
                         <p class="principle-description">
-                            This sounds boring but it's actually liberating—every spacing decision becomes automatic. 
-                            8px, 16px, 24px, 32px. No more staring at designs wondering "should this be 15px or 18px?" 
-                            The system decides for you, and somehow it always looks right.
+                            All spacing uses multiples of 8px for perfect rhythm
                         </p>
+                        <div class="principle-demo" aria-label="Spacing system demonstration">
+                            <div class="spacing-demo">
+                                <div class="space-block s1"></div>
+                                <div class="space-block s2"></div>
+                                <div class="space-block s3"></div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="principle-card">
-                        <h3 class="principle-title">White Space as Your Secret Weapon</h3>
+                        <div class="principle-icon">
+                            <div class="icon-space" aria-hidden="true">○</div>
+                        </div>
+                        <h3 class="principle-title">Strategic Space</h3>
                         <p class="principle-description">
-                            Here's what separates amateur from professional design: white space. Not empty space—
-                            <em>strategic</em> space. It makes expensive things look expensive and simple things look sophisticated. 
-                            Apple figured this out decades ago. Now you can too.
+                            White space guides attention and creates premium feel
                         </p>
+                        <div class="principle-demo" aria-label="White space demonstration">
+                            <div class="space-example">
+                                <div class="content-block"></div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="principle-card">
-                        <h3 class="principle-title">Beautiful by Accident</h3>
+                        <div class="principle-icon">
+                            <div class="icon-function" aria-hidden="true">→</div>
+                        </div>
+                        <h3 class="principle-title">Function First</h3>
                         <p class="principle-description">
-                            When you remove everything unnecessary, what's left becomes automatically elegant. 
-                            This isn't minimalism for minimalism's sake—it's strategic clarity that makes users 
-                            feel smart and confident. That feeling = trust = business results.
+                            Every element serves a purpose—beauty through clarity
                         </p>
+                        <div class="principle-demo" aria-label="Functional design demonstration">
+                            <div class="function-demo">
+                                <div class="element active" aria-label="Active state">✓</div>
+                                <div class="element disabled" aria-label="Disabled state">✗</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -102,55 +184,42 @@
 
         <section id="history" class="section section-alt">
             <div class="container">
-                <div class="history-content">
-                    <div class="history-text">
-                        <h2 class="section-title">The Story Behind the Revolution</h2>
-                        <p class="section-description">
-                            Picture this: It's 1957, and a Swiss designer named Josef Müller-Brockmann creates a poster 
-                            that will accidentally change the internet forever. He had no idea that his mathematical 
-                            approach to layout would eventually power the websites that run our world.
-                        </p>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-year">1957</div>
-                                <div class="timeline-content">
-                                    <h4>The Accidental Genesis</h4>
-                                    <p>Müller-Brockmann creates the "Musica Viva" poster using mathematical grids. 
-                                    He thinks he's just making concert advertisements. He's actually inventing the 
-                                    design language of the digital future.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-year">2010</div>
-                                <div class="timeline-content">
-                                    <h4>The Great Mobile Panic</h4>
-                                    <p>Smartphones explode in popularity. Every beautiful website looks like garbage 
-                                    on mobile. Designers try to adapt Swiss grids to phones and... it's a disaster. 
-                                    Everything breaks. Everything looks wrong.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-year">2017</div>
-                                <div class="timeline-content">
-                                    <h4>The CSS Grid Miracle</h4>
-                                    <p>Browsers finally support CSS Grid. Suddenly, designers can create layouts that 
-                                    are both systematic AND flexible. Swiss Design + Responsive Web = Neo-Swiss is born. 
-                                    The internet gets beautiful again.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-year">2018</div>
-                                <div class="timeline-content">
-                                    <h4>Stripe Proves It Works</h4>
-                                    <p>A payments company becomes the gold standard of web design using pure Neo-Swiss principles. 
-                                    Clean, systematic, trustworthy. Suddenly everyone wants their fintech app to look like Stripe.</p>
-                                </div>
-                            </div>
+                <div class="evolution-story">
+                    <h2 class="section-title">The Evolution</h2>
+                    <div class="evolution-flow">
+                        <div class="evo-step">
+                            <div class="evo-year">1957</div>
+                            <div class="evo-title">Swiss Design Born</div>
+                            <div class="evo-description">Mathematical grids revolutionize print</div>
                         </div>
-                        <blockquote class="expert-quote">
-                            <p><em>"The best design is invisible"</em></p>
-                            <p>Neo-Swiss works because users never think about the design—they just trust it, use it, and love it.</p>
-                        </blockquote>
+                        
+                        <div class="evo-arrow">→</div>
+                        
+                        <div class="evo-step">
+                            <div class="evo-year">2010</div>
+                            <div class="evo-title">Mobile Crisis</div>
+                            <div class="evo-description">Rigid grids break on phones</div>
+                        </div>
+                        
+                        <div class="evo-arrow">→</div>
+                        
+                        <div class="evo-step">
+                            <div class="evo-year">2017</div>
+                            <div class="evo-title">CSS Grid Arrives</div>
+                            <div class="evo-description">Flexible systematic layouts possible</div>
+                        </div>
+                        
+                        <div class="evo-arrow">→</div>
+                        
+                        <div class="evo-step highlight">
+                            <div class="evo-year">Now</div>
+                            <div class="evo-title">Neo-Swiss</div>
+                            <div class="evo-description">Systematic + Responsive = Perfect</div>
+                        </div>
+                    </div>
+                    
+                    <div class="evolution-quote">
+                        <div class="quote-text">"Swiss precision meets digital flexibility"</div>
                     </div>
                 </div>
             </div>
@@ -158,75 +227,73 @@
 
         <section id="examples" class="section">
             <div class="container">
-                <h2 class="section-title">Companies That Cracked the Code</h2>
-                <p class="section-description">
-                    These aren't just pretty websites—they're business weapons. Each company uses Neo-Swiss principles 
-                    to dominate their industry. Here's how they did it (and how you can too).
-                </p>
-                <div class="examples-grid">
-                    <div class="example-card">
-                        <div class="example-image">
-                            <div class="placeholder-image"></div>
-                        </div>
-                        <div class="example-content">
-                            <h3 class="example-title">Stripe: $95 Billion Trust Machine</h3>
-                            <p class="example-description">
-                                When you're handling people's money, trust is everything. Stripe's Neo-Swiss design 
-                                does something magical—it makes complex financial products feel simple and safe. 
-                                Their secret? Extreme restraint. Black, white, one blue. That's it. 
-                                While competitors cram colorful dashboards with features, Stripe's clarity wins every time.
-                            </p>
-                            <div class="example-tags">
-                                <span class="tag">$95B Valuation</span>
-                                <span class="tag">Trust = Revenue</span>
-                                <span class="tag">Less = More</span>
+                <h2 class="section-title">Success Stories</h2>
+                <div class="examples-showcase">
+                    <div class="example-hero">
+                        <div class="example-stats">
+                            <div class="big-stat">
+                                <div class="stat-value">$200B+</div>
+                                <div class="stat-label">Combined valuation</div>
+                            </div>
+                            <div class="companies-using">
+                                <div class="company-logo">Stripe</div>
+                                <div class="company-logo">Linear</div>
+                                <div class="company-logo">Airbnb</div>
                             </div>
                         </div>
                     </div>
-                    <div class="example-card">
-                        <div class="example-image">
-                            <div class="placeholder-image"></div>
-                        </div>
-                        <div class="example-content">
-                            <h3 class="example-title">Linear: The Productivity Revolution</h3>
-                            <p class="example-description">
-                                Linear didn't just build project management software—they redefined what "fast" feels like. 
-                                Their Neo-Swiss interface processes information so efficiently that users report thinking 
-                                faster while using it. It's not magic, it's systematic design removing every cognitive 
-                                friction point. Speed as a competitive advantage.
-                            </p>
-                            <div class="example-tags">
-                                <span class="tag">Cognitive Speed</span>
-                                <span class="tag">Zero Friction</span>
-                                <span class="tag">Systematic Thinking</span>
+                    
+                    <div class="examples-grid">
+                        <div class="example-card modern">
+                            <div class="example-header">
+                                <div class="company-badge stripe">Stripe</div>
+                                <div class="valuation">$95B</div>
+                            </div>
+                            <h3>Trust Through Simplicity</h3>
+                            <p>Black + white + blue = $95B fintech leader</p>
+                            <div class="color-palette">
+                                <div class="color-swatch" style="background: #000;"></div>
+                                <div class="color-swatch" style="background: #635BFF;"></div>
+                                <div class="color-swatch" style="background: #FFF; border: 1px solid #eee;"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="example-card">
-                        <div class="example-image">
-                            <div class="placeholder-image"></div>
+                        
+                        <div class="example-card modern">
+                            <div class="example-header">
+                                <div class="company-badge linear">Linear</div>
+                                <div class="valuation">$2.7B</div>
+                            </div>
+                            <h3>Speed as Advantage</h3>
+                            <p>Purple + systematic design = fastest product workflow</p>
+                            <div class="color-palette">
+                                <div class="color-swatch" style="background: #000;"></div>
+                                <div class="color-swatch" style="background: #5E6AD2;"></div>
+                                <div class="color-swatch" style="background: #F1F2F4;"></div>
+                            </div>
                         </div>
-                        <div class="example-content">
-                            <h3 class="example-title">Airbnb: Beauty at Global Scale</h3>
-                            <p class="example-description">
-                                How do you design for millions of hosts in 220 countries? Airbnb's answer: unbreakable systems. 
-                                Their Neo-Swiss design language works in every language, culture, and device. 
-                                The systematic approach means a new designer in São Paulo can create interfaces 
-                                that feel perfectly consistent with work done in San Francisco.
-                            </p>
-                            <div class="example-tags">
-                                <span class="tag">Global Consistency</span>
-                                <span class="tag">Cultural Adaptability</span>
-                                <span class="tag">Systematic Scale</span>
+                        
+                        <div class="example-card modern">
+                            <div class="example-header">
+                                <div class="company-badge airbnb">Airbnb</div>
+                                <div class="valuation">$75B</div>
+                            </div>
+                            <h3>Global Consistency</h3>
+                            <p>Coral + systematic grids = worldwide scale</p>
+                            <div class="color-palette">
+                                <div class="color-swatch" style="background: #222;"></div>
+                                <div class="color-swatch" style="background: #FF5A5F;"></div>
+                                <div class="color-swatch" style="background: #F7F7F7;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="expert-insight">
-                    <h3>The Pattern That Wins:</h3>
-                    <p>Notice what all three have in common? They use <strong>systematic constraints to create competitive advantages</strong>. 
-                    While competitors debate colors and fonts, these companies focus on solving user problems. 
-                    That's the real power of Neo-Swiss—it gets the design out of the way so the product can shine.</p>
+                
+                <div class="pattern-insight">
+                    <div class="insight-icon">💡</div>
+                    <div class="insight-content">
+                        <h3>The Winning Pattern</h3>
+                        <p>Systematic constraints = competitive advantages. While others debate, these companies execute.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -234,40 +301,32 @@
         <section id="about" class="section section-alt">
             <div class="container">
                 <div class="about-content">
-                    <h2 class="section-title">You're Inside the System Right Now</h2>
-                    <div class="about-grid">
-                        <div class="about-text">
-                            <p>
-                                <strong>Plot twist:</strong> This entire website is built using the exact Neo-Swiss principles 
-                                we just taught you. Every grid line, color choice, and spacing decision proves the system works. 
-                                We're not just talking about Neo-Swiss—we're showing you by doing it.
-                            </p>
-                            <p>
-                                <strong>Here's the beautiful part:</strong> You probably didn't notice the design at all. 
-                                You were focused on the content, the ideas, the stories. That's Neo-Swiss working perfectly—
-                                invisible structure that makes everything else shine.
-                            </p>
-                            <div class="live-example">
-                                <h4>Want to see the magic?</h4>
-                                <p>Grab the corner of your browser window and resize it. Watch how everything adapts 
-                                fluidly but never breaks. Desktop → Tablet → Mobile. The grid system is working 
-                                behind the scenes, keeping everything perfectly aligned no matter what.</p>
+                    <h2 class="section-title">Meta Reveal</h2>
+                    
+                    <div class="meta-reveal">
+                        <div class="reveal-statement">
+                            <span class="reveal-label">Plot Twist</span>
+                            <p>This website <em>is</em> Neo-Swiss in action</p>
+                        </div>
+                        
+                        <div class="system-breakdown">
+                            <div class="breakdown-item">
+                                <div class="breakdown-visual grid-demo"></div>
+                                <span>12→6→4 Column Grid</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <div class="breakdown-visual type-demo">Aa</div>
+                                <span>Fluid Typography</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <div class="breakdown-visual spacing-demo"></div>
+                                <span>8px Spacing System</span>
                             </div>
                         </div>
-                        <div class="about-specs">
-                            <h3>Peek Behind the Curtain</h3>
-                            <ul class="specs-list">
-                                <li>12-column CSS Grid (collapses to 6, then 4)</li>
-                                <li>Fluid typography scales with viewport</li>
-                                <li>8px spacing system throughout</li>
-                                <li>Mobile-first responsive breakpoints</li>
-                                <li>4 colors total (black, white, grays, blue)</li>
-                                <li>Inter typeface for clean readability</li>
-                            </ul>
-                            <div class="code-hint">
-                                <p><strong>Developer secret:</strong> Right-click anywhere → Inspect Element to see 
-                                the CSS Grid in action. This is how you reverse-engineer great design.</p>
-                            </div>
+                        
+                        <div class="resize-challenge">
+                            <div class="challenge-icon">↔</div>
+                            <p><strong>Try this:</strong> Resize your browser window</p>
                         </div>
                     </div>
                 </div>
@@ -308,5 +367,7 @@
             </div>
         </div>
     </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
