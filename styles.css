@@ -150,11 +150,12 @@ p {
 .navigation {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--color-gray-100);
     z-index: 1000;
+    background: var(--color-black);
+    border-bottom: 1px solid var(--color-gray-900);
+    backdrop-filter: blur(10px);
 }
 
 .nav-container {
@@ -170,7 +171,8 @@ p {
 .logo {
     font-size: var(--text-lg);
     font-weight: 600;
-    color: var(--color-black);
+    letter-spacing: -0.02em;
+    color: var(--color-white);
     text-decoration: none;
 }
 
@@ -229,7 +231,7 @@ p {
 }
 
 .nav-link {
-    color: var(--color-gray-700);
+    color: var(--color-gray-300);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease;
@@ -239,13 +241,13 @@ p {
 
 .nav-link:hover,
 .nav-link:focus {
-    color: var(--color-black);
+    color: var(--color-white);
     border-bottom-color: var(--color-primary);
     outline: none;
 }
 
 .nav-link.active {
-    color: var(--color-black);
+    color: var(--color-white);
     border-bottom-color: var(--color-primary);
 }
 
@@ -264,12 +266,12 @@ p {
         top: 64px;
         left: 0;
         right: 0;
-        background: var(--color-white);
+        background: var(--color-black);
         flex-direction: column;
         gap: 0;
         padding: var(--space-lg);
-        border-bottom: 1px solid var(--color-gray-100);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        border-bottom: 1px solid var(--color-gray-900);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.5);
         display: none;
     }
     
