@@ -12,7 +12,7 @@
     /* Typography */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     
-    /* Fluid Typography Scale */
+    /* Fluid Typography Scale - Refined Neo-Swiss */
     --text-xs: clamp(12px, 1.5vw, 14px);
     --text-sm: clamp(14px, 2vw, 16px);
     --text-base: clamp(16px, 2.2vw, 18px);
@@ -20,7 +20,7 @@
     --text-xl: clamp(22px, 3vw, 28px);
     --text-2xl: clamp(28px, 4vw, 36px);
     --text-3xl: clamp(36px, 5vw, 48px);
-    --text-4xl: clamp(48px, 6vw, 64px);
+    --text-4xl: clamp(48px, 6vw, 72px);
     
     /* Colors - Neo-Swiss Minimal Palette (Black + White + Gray + 1 Accent) */
     --color-black: #000000;
@@ -87,8 +87,26 @@ body {
     line-height: 1.6;
     color: var(--color-black);
     background-color: var(--color-white);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Living grid background - signature element */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(var(--color-gray-100) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-gray-100) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.3s ease;
 }
 
 /* ===== TYPOGRAPHY HIERARCHY ===== */
@@ -279,6 +297,20 @@ p {
 /* ===== SECTIONS ===== */
 .section {
     padding: var(--space-4xl) 0;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scroll reveal animation - subtle but polished */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--easing-standard), transform 0.8s var(--easing-standard);
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section-alt {
@@ -288,14 +320,10 @@ p {
 .section-title {
     font-size: var(--text-3xl);
     font-weight: 800;
-    text-align: center;
-    margin: 0 auto var(--space-3xl) auto;
-    max-width: 800px;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
+    margin-bottom: var(--space-3xl);
+    letter-spacing: -0.02em;
     position: relative;
     display: inline-block;
-    width: 100%;
 }
 
 .section-title::after {
@@ -312,25 +340,26 @@ p {
 
 /* ===== HERO SECTION ===== */
 .hero {
-    padding: calc(64px + var(--space-3xl)) 0 var(--space-4xl) 0;
-    min-height: 90vh;
+    padding: calc(64px + var(--space-4xl)) 0 var(--space-4xl) 0;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-100) 100%);
+    background: var(--color-white);
 }
 
 .hero::before {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(41, 98, 255, 0.05) 0%, transparent 70%);
-    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.02) 100%);
     pointer-events: none;
+    z-index: 0;
 }
 
 .hero .container {
@@ -661,6 +690,8 @@ p {
     display: flex;
     flex-direction: column;
     min-height: 320px;
+    transform-style: preserve-3d;
+    will-change: transform;
 }
 
 .principle-card::after {

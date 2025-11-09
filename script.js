@@ -116,3 +116,74 @@ document.addEventListener('keydown', (e) => {
         }
     }
 });
+
+// KINETIC EFFECTS - Cursor-following grid highlight
+const hero = document.querySelector('.hero');
+if (hero) {
+    let mouseX = 0;
+    let mouseY = 0;
+    
+    hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        mouseX = ((e.clientX - rect.left) / rect.width) * 100;
+        mouseY = ((e.clientY - rect.top) / rect.height) * 100;
+        
+        hero.style.setProperty('--mouse-x', `${mouseX}%`);
+        hero.style.setProperty('--mouse-y', `${mouseY}%`);
+    });
+}
+
+// Parallax scroll effect for hero
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const heroContent = document.querySelector('.hero-content');
+    
+    if (heroContent && scrolled < window.innerHeight) {
+        heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+        heroContent.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
+    }
+    
+    // Subtle grid animation on scroll
+    const scrollPercent = scrolled / (document.documentElement.scrollHeight - window.innerHeight);
+    document.body.style.setProperty('--scroll-progress', scrollPercent);
+});
+
+// Reveal sections on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.section').forEach(section => {
+    section.classList.add('reveal-on-scroll');
+    sectionObserver.observe(section);
+});
+
+// Interactive principle cards - tilt on hover
+document.querySelectorAll('.principle-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
+});
