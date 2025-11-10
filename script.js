@@ -197,12 +197,61 @@ if (gridToggle) {
         gridOverlay.classList.toggle('active');
         
         if (isActive) {
-            gridToggle.querySelector('.button-text').textContent = 'Hide Grid System';
+            gridToggle.querySelector('.button-text').textContent = 'Hide Grid Overlay';
             gridToggle.style.background = 'var(--color-primary)';
         } else {
-            gridToggle.querySelector('.button-text').textContent = 'Show Grid System';
+            gridToggle.querySelector('.button-text').textContent = 'Show Grid Overlay';
             gridToggle.style.background = 'var(--color-black)';
         }
     });
 }
 
+// INTERACTIVE GRID TRANSFORMER - Live 12→6→4 Demo
+const viewportSlider = document.getElementById('viewportSlider');
+const viewportContainer = document.getElementById('viewportContainer');
+const responsiveGrid = document.getElementById('responsiveGrid');
+const deviceName = document.querySelector('.device-name');
+const viewportWidth = document.querySelector('.viewport-width');
+
+if (viewportSlider && viewportContainer && responsiveGrid) {
+    viewportSlider.addEventListener('input', (e) => {
+        const width = parseInt(e.target.value);
+        
+        // Update viewport container width
+        viewportContainer.style.maxWidth = `${width}px`;
+        
+        // Update labels
+        viewportWidth.textContent = `${width}px`;
+        
+        // Determine device type and grid columns
+        let columns, device;
+        if (width <= 480) {
+            columns = 4;
+            device = 'Mobile';
+        } else if (width <= 768) {
+            columns = 6;
+            device = 'Tablet';
+        } else {
+            columns = 12;
+            device = 'Desktop';
+        }
+        
+        deviceName.textContent = device;
+        
+        // Update grid
+        responsiveGrid.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+        
+        // Show only the active columns
+        const gridColumns = responsiveGrid.querySelectorAll('.grid-column');
+        gridColumns.forEach((col, index) => {
+            if (index < columns) {
+                col.style.display = 'block';
+            } else {
+                col.style.display = 'none';
+            }
+        });
+    });
+    
+    // Trigger initial state
+    viewportSlider.dispatchEvent(new Event('input'));
+}

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
     <nav class="navigation" role="navigation" aria-label="Main navigation">
@@ -57,22 +57,40 @@
                         </a>
                         <a href="#examples" class="button button-secondary">Live Examples</a>
                     </div>
-                </div>
                 <div class="hero-visual">
-                    <div class="floating-shapes">
-                        <div class="shape shape-circle-large"></div>
-                        <div class="shape shape-square-medium"></div>
-                        <div class="shape shape-circle-small"></div>
-                    </div>
-                    <div class="grid-demo">
-                        <div class="grid-line"></div>
-                        <div class="grid-line"></div>
-                        <div class="grid-line"></div>
-                        <div class="grid-line"></div>
-                        <div class="grid-cards">
-                            <div class="demo-card card-1"></div>
-                            <div class="demo-card card-2"></div>
-                            <div class="demo-card card-3"></div>
+                    <div class="visual-grid-transformer">
+                        <div class="grid-label">Desktop: 12 Columns</div>
+                        <div class="grid-container grid-12">
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                        </div>
+                        <div class="grid-arrow">↓</div>
+                        <div class="grid-label">Tablet: 6 Columns</div>
+                        <div class="grid-container grid-6">
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                        </div>
+                        <div class="grid-arrow">↓</div>
+                        <div class="grid-label">Mobile: 4 Columns</div>
+                        <div class="grid-container grid-4">
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
+                            <div class="grid-col"></div>
                         </div>
                     </div>
                 </div>
@@ -105,7 +123,6 @@
                                 <div class="demo-col"></div>
                             </div>
                         </div>
-                        <a href="#principles" class="card-link">Learn More →</a>
                     </div>
                     
                     <div class="principle-card">
@@ -128,7 +145,6 @@
                                 <div class="type-sample small">Body</div>
                             </div>
                         </div>
-                        <a href="#principles" class="card-link">Learn More →</a>
                     </div>
                     
                     <div class="principle-card">
@@ -152,7 +168,6 @@
                                 <div class="dot accent" aria-label="Accent blue"></div>
                             </div>
                         </div>
-                        <a href="#principles" class="card-link">Learn More →</a>
                     </div>
                     
                     <div class="principle-card">
@@ -175,7 +190,6 @@
                                 <div class="space-block s3"></div>
                             </div>
                         </div>
-                        <a href="#principles" class="card-link">Learn More →</a>
                     </div>
                     
                     <div class="principle-card">
@@ -196,7 +210,6 @@
                                 <div class="content-block"></div>
                             </div>
                         </div>
-                        <a href="#principles" class="card-link">Learn More →</a>
                     </div>
                     
                     <div class="principle-card">
@@ -218,7 +231,6 @@
                                 <div class="element disabled" aria-label="Disabled state">✗</div>
                             </div>
                         </div>
-                        <a href="#principles" class="card-link">Learn More →</a>
                     </div>
                 </div>
             </div>
@@ -270,28 +282,47 @@
         <section id="examples" class="section">
             <div class="container">
                 <h2 class="section-title">See It In Action</h2>
-                <p class="section-intro">This website demonstrates every Neo-Swiss principle. Toggle the grid overlay to see the 12-column system, 8px spacing, and systematic alignment in action.</p>
+                <p class="section-intro">Experience the 12→6→4 responsive grid system. Drag the slider to simulate different viewport sizes and watch the grid adapt.</p>
                 
-                <div class="interactive-demo">
-                    <button id="gridToggle" class="demo-button">
-                        <span class="button-icon">⊞</span>
-                        <span class="button-text">Show Grid System</span>
-                    </button>
-                    
-                    <div class="demo-stats">
-                        <div class="demo-stat">
-                            <div class="stat-label">Grid Columns</div>
-                            <div class="stat-number">12</div>
+                <div class="interactive-grid-demo">
+                    <div class="viewport-simulator">
+                        <div class="viewport-label">
+                            <span class="device-name">Desktop</span>
+                            <span class="viewport-width">1200px</span>
                         </div>
-                        <div class="demo-stat">
-                            <div class="stat-label">Base Unit</div>
-                            <div class="stat-number">8px</div>
+                        <div class="viewport-container" id="viewportContainer">
+                            <div class="responsive-grid" id="responsiveGrid">
+                                <div class="grid-column"></div>
+                                <div class="grid-column"></div>
+                                <div class="grid-column"></div>
+                                <div class="grid-column"></div>
+                                <div class="grid-column"></div>
+                                <div class="grid-column"></div>
+                                <div class="grid-column"></div>
+                                <div class="grid-column"></div>
+                                <div class="grid-column"></div>
+                                <div class="grid-column"></div>
+                                <div class="grid-column"></div>
+                                <div class="grid-column"></div>
+                            </div>
                         </div>
-                        <div class="demo-stat">
-                            <div class="stat-label">Breakpoints</div>
-                            <div class="stat-number">3</div>
+                        <div class="viewport-slider-container">
+                            <label for="viewportSlider">Viewport Width</label>
+                            <input type="range" id="viewportSlider" min="320" max="1200" value="1200" step="10">
+                            <div class="slider-markers">
+                                <span>320px<br>Mobile</span>
+                                <span>768px<br>Tablet</span>
+                                <span>1200px<br>Desktop</span>
+                            </div>
                         </div>
                     </div>
+                </div>
+                
+                <div class="toggle-demo">
+                    <button id="gridToggle" class="demo-button">
+                        <span class="button-icon">⊞</span>
+                        <span class="button-text">Show Grid Overlay</span>
+                    </button>
                 </div>
                 
                 <div class="comparison-grid">
@@ -324,7 +355,7 @@
                     <div class="insight-icon">💡</div>
                     <div class="insight-content">
                         <h3>The Advantage</h3>
-                        <p>Systematic constraints create consistency. Consistency builds trust. Trust drives adoption. Companies like Stripe, Linear, and Vercel use this methodology to scale their design systems across hundreds of products and thousands of screens.</p>
+                        <p>Systematic constraints create consistency. Consistency builds trust. Trust drives adoption. This methodology scales design systems across hundreds of products and thousands of screens.</p>
                     </div>
                 </div>
             </div>
@@ -367,15 +398,34 @@
 
         <section class="cta-section">
             <div class="container">
-                <div class="cta-content">
-                    <h2 class="cta-title">Ready to Apply Neo-Swiss?</h2>
-                    <p class="cta-description">Start building systematic, scalable interfaces with proven design principles. Download the complete style guide and implementation templates.</p>
-                    <div class="cta-actions">
-                        <a href="#" class="button button-primary button-large">
-                            <span>Download Style Guide</span>
+                <div class="cta-grid">
+                    <div class="cta-col cta-black">
+                        <h2 class="cta-title">Apply the System</h2>
+                        <p class="cta-description">Download design tokens, grid templates, and implementation guidelines.</p>
+                        <a href="#" class="button button-cta-white">
+                            <span>Download System</span>
                             <span class="button-arrow">→</span>
                         </a>
-                        <a href="#principles" class="button button-secondary button-large">View Examples</a>
+                    </div>
+                    <div class="cta-col cta-blue">
+                        <div class="cta-stats-grid">
+                            <div class="cta-stat">
+                                <div class="cta-stat-number">12</div>
+                                <div class="cta-stat-label">Grid Columns</div>
+                            </div>
+                            <div class="cta-stat">
+                                <div class="cta-stat-number">8px</div>
+                                <div class="cta-stat-label">Base Unit</div>
+                            </div>
+                            <div class="cta-stat">
+                                <div class="cta-stat-number">1</div>
+                                <div class="cta-stat-label">Accent Color</div>
+                            </div>
+                            <div class="cta-stat">
+                                <div class="cta-stat-number">∞</div>
+                                <div class="cta-stat-label">Possibilities</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -416,6 +466,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
