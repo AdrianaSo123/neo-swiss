@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
     <nav class="navigation" role="navigation" aria-label="Main navigation">
@@ -228,72 +228,62 @@
 
         <section id="examples" class="section">
             <div class="container">
-                <h2 class="section-title">Success Stories</h2>
-                <div class="examples-showcase">
-                    <div class="example-hero">
-                        <div class="example-stats">
-                            <div class="big-stat">
-                                <div class="stat-value">$200B+</div>
-                                <div class="stat-label">Combined valuation</div>
-                            </div>
-                            <div class="companies-using">
-                                <div class="company-logo">Stripe</div>
-                                <div class="company-logo">Linear</div>
-                                <div class="company-logo">Airbnb</div>
-                            </div>
-                        </div>
-                    </div>
+                <h2 class="section-title">See It In Action</h2>
+                <p class="section-intro">This website demonstrates every Neo-Swiss principle. Toggle the grid overlay to see the 12-column system, 8px spacing, and systematic alignment in action.</p>
+                
+                <div class="interactive-demo">
+                    <button id="gridToggle" class="demo-button">
+                        <span class="button-icon">⊞</span>
+                        <span class="button-text">Show Grid System</span>
+                    </button>
                     
-                    <div class="examples-grid">
-                        <div class="example-card modern">
-                            <div class="example-header">
-                                <div class="company-badge stripe">Stripe</div>
-                                <div class="valuation">$95B</div>
-                            </div>
-                            <h3>Trust Through Simplicity</h3>
-                            <p>Black + white + blue = $95B fintech leader</p>
-                            <div class="color-palette">
-                                <div class="color-swatch" style="background: #000;"></div>
-                                <div class="color-swatch" style="background: #635BFF;"></div>
-                                <div class="color-swatch" style="background: #FFF; border: 1px solid #eee;"></div>
-                            </div>
+                    <div class="demo-stats">
+                        <div class="demo-stat">
+                            <div class="stat-label">Grid Columns</div>
+                            <div class="stat-number">12</div>
                         </div>
-                        
-                        <div class="example-card modern">
-                            <div class="example-header">
-                                <div class="company-badge linear">Linear</div>
-                                <div class="valuation">$2.7B</div>
-                            </div>
-                            <h3>Speed as Advantage</h3>
-                            <p>Purple + systematic design = fastest product workflow</p>
-                            <div class="color-palette">
-                                <div class="color-swatch" style="background: #000;"></div>
-                                <div class="color-swatch" style="background: #5E6AD2;"></div>
-                                <div class="color-swatch" style="background: #F1F2F4;"></div>
-                            </div>
+                        <div class="demo-stat">
+                            <div class="stat-label">Base Unit</div>
+                            <div class="stat-number">8px</div>
                         </div>
-                        
-                        <div class="example-card modern">
-                            <div class="example-header">
-                                <div class="company-badge airbnb">Airbnb</div>
-                                <div class="valuation">$75B</div>
-                            </div>
-                            <h3>Global Consistency</h3>
-                            <p>Coral + systematic grids = worldwide scale</p>
-                            <div class="color-palette">
-                                <div class="color-swatch" style="background: #222;"></div>
-                                <div class="color-swatch" style="background: #FF5A5F;"></div>
-                                <div class="color-swatch" style="background: #F7F7F7;"></div>
-                            </div>
+                        <div class="demo-stat">
+                            <div class="stat-label">Breakpoints</div>
+                            <div class="stat-number">3</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="pattern-insight">
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="card-header">
+                            <span class="badge badge-negative">Without System</span>
+                        </div>
+                        <ul class="comparison-list">
+                            <li>❌ Random spacing (13px, 17px, 22px)</li>
+                            <li>❌ Inconsistent typography</li>
+                            <li>❌ No grid alignment</li>
+                            <li>❌ Arbitrary color choices</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card highlight">
+                        <div class="card-header">
+                            <span class="badge badge-positive">Neo-Swiss System</span>
+                        </div>
+                        <ul class="comparison-list">
+                            <li>✓ 8px spacing increments (8, 16, 24, 32)</li>
+                            <li>✓ Systematic type scale (1:1.5 ratio)</li>
+                            <li>✓ 12-column responsive grid</li>
+                            <li>✓ Single accent color + grayscale</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="insight-box">
                     <div class="insight-icon">💡</div>
                     <div class="insight-content">
-                        <h3>The Winning Pattern</h3>
-                        <p>Systematic constraints = competitive advantages. While others debate, these companies execute.</p>
+                        <h3>The Advantage</h3>
+                        <p>Systematic constraints create consistency. Consistency builds trust. Trust drives adoption. Companies like Stripe, Linear, and Vercel use this methodology to scale their design systems across hundreds of products and thousands of screens.</p>
                     </div>
                 </div>
             </div>
@@ -368,7 +358,7 @@
             </div>
         </div>
     </footer>
-    
-    <script src="script.js"></script>
+
+    <script src="script.js?v=2"></script>
 </body>
 </html>

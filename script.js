@@ -167,23 +167,42 @@ document.querySelectorAll('.section').forEach(section => {
     sectionObserver.observe(section);
 });
 
-// Interactive principle cards - tilt on hover
-document.querySelectorAll('.principle-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-    });
+// Interactive principle cards - CSS handles hover, no JS needed
+// Removed to avoid conflicts with CSS transitions
+
+// GRID OVERLAY TOGGLE - Interactive Demo
+const gridToggle = document.getElementById('gridToggle');
+if (gridToggle) {
+    // Create grid overlay element
+    const gridOverlay = document.createElement('div');
+    gridOverlay.className = 'grid-overlay';
     
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
+    const gridInner = document.createElement('div');
+    gridInner.className = 'grid-overlay-inner';
+    
+    // Create 12 columns
+    for (let i = 0; i < 12; i++) {
+        const column = document.createElement('div');
+        column.className = 'grid-column';
+        gridInner.appendChild(column);
+    }
+    
+    gridOverlay.appendChild(gridInner);
+    document.body.appendChild(gridOverlay);
+    
+    // Toggle functionality
+    let isActive = false;
+    gridToggle.addEventListener('click', () => {
+        isActive = !isActive;
+        gridOverlay.classList.toggle('active');
+        
+        if (isActive) {
+            gridToggle.querySelector('.button-text').textContent = 'Hide Grid System';
+            gridToggle.style.background = 'var(--color-primary)';
+        } else {
+            gridToggle.querySelector('.button-text').textContent = 'Show Grid System';
+            gridToggle.style.background = 'var(--color-black)';
+        }
     });
-});
+}
+
